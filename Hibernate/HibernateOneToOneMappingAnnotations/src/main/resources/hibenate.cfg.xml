@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+        <property name="connection.url">jdbc:sqlserver://localhost;databaseName=MyDatabase;</property>
+        <property name="connection.username">admin</property>
+        <property name="connection.password">admin</property>
+
+        <property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
+
+        <property name="show_sql">true</property>
+
+        <property name="connection.pool_size">1</property>
+
+        <property name="current_session_context_class">thread</property>
+
+        <property name="c3p0.min_size">5</property>
+        <property name="c3p0.max_size">10</property>
+        <property name="c3p0.timeout">60000</property>
+
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        <mapping class="org.exmaple.entities.Address"></mapping>
+        <mapping class="org.exmaple.entities.Employee"></mapping>
+    </session-factory>
+</hibernate-configuration>

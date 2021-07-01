@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--CDPOCSC30M=> C=Connection,D=>Dialect,P=>Pool,O=>Output,C=>Context,S=>Schema,D=>C30,M=>Mapping-->
+        <!-- JDBC database connection-->
+        <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+        <property name="connection.url">jdbc:sqlserver://localhost;databaseName=MyDatabase</property>
+        <property name="connection.username">admin</property>
+        <property name="connection.password">admin</property>
+        <!--dialect-->
+        <property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
+        <!--JDBC Pool settings-Built in pool-->
+        <property name="connection.pool_size">1</property>
+        <!--Echo the sql to stdout-->
+        <property name="show_sql">true</property>
+        <!--Set the current session context-->
+        <property name="current_session_context_class">thread</property>
+        <!-- Drop and Recreate Schema-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!--c30 connection pool configuration-->
+        <property name="hibernate.c3p0.max_size">10</property>
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.timeout">-1</property>
+        <mapping class="com.github.runtime.exception.entities.Student"></mapping>
+    </session-factory>
+</hibernate-configuration>
